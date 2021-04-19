@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>canvas绘制矩形</title>
+</head>
+<body onload="draw()">
+
+  <!-- canvas 只支持两种形式的图形绘制：矩形和路径（由一系列点连成的线段） -->
+
+  <!-- canvas提供了 三 种方法绘制矩形 -->
+  <!-- fillRect(x, y, width, height)  绘制一个填充的矩形 -->
+  <!-- strokeRect(x, y, width, height)  绘制一个矩形的边框 -->
+  <!-- clearRect(x, y, width, height)  清除指定矩形区域，让清除部分完全透明 -->
+  <!-- 参数含义都是一样的： x y 起始点的坐标 width 矩形的宽度 height 矩形的高度 -->
+  <canvas id="canvas" height="300" width="300"></canvas>
+
+
+  <script>
+    function draw(){
+      let canvas = document.querySelector('#canvas');
+      if (canvas.getContext) {
+        let ctx = canvas.getContext('2d');
+        ctx.fillStyle = "rgb(200,0,0)"
+        ctx.fillRect(25, 25, 100, 100);
+        ctx.clearRect(40, 40, 70, 70);
+        ctx.strokeRect(50, 50, 50, 50);
+      }
+    }
+    
+    // 不同于路径函数（path function），以上的三个函数绘制之后会马上显现在canvas上，即时生效。
+  </script>
+</body>
+</html>

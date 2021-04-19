@@ -18,8 +18,13 @@
 
   <script>
     let canvas = document.querySelector('#canvas');
-    if(canvas.getContext('2d')){
+    if(canvas.getContext){
       let ctx = canvas.getContext('2d');
+      // fillRect(x, y, width, height)
+      // x  起始点的 x 轴坐标
+      // y  起始点的 y 轴坐标
+      // width   矩形的宽度
+      // height  矩形的高度
       ctx.fillStyle = "rgb(200,0,0)";
       ctx.fillRect(0, 0, 50, 50);
       

@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>绘制三角形</title>
+</head>
+<body onload="draw()">
+  <!-- 使用路径绘制图形需要的步骤 -->
+  <!-- 1. 创建路径起始点 -->
+  <!-- 2. 使用命令画出路径 -->
+  <!-- 3. 把路径封闭 -->
+  <!-- 4. 通过描边或填充路径区域来渲染图形 -->
+
+  <!-- 使用到的函数： -->
+  <!-- 1. beginPath()  新建一条路径，生成之后，图形绘制命令被指向到路径上生成路径。每次这个方法调用之后，列表清空重置 -->
+  <!-- 2. closePath()  闭合路径之后图形绘制命令又重新指向到上下文中。 -->
+  <!-- 3. stroke()     通过线条来绘制图形轮廓。 -->
+  <!-- 4. fill()       通过填充路径的内容区域生成实心的图形。 -->
+  <!-- 当你调用 fill() 函数时，所有没有闭合的形状都会自动闭合，所以你不需要调用closePath()函数。但是调用stroke()时不会自动闭合。 -->
+  
+  <canvas id="canvas" height="200" width="200"></canvas>
+  
+  <script>
+    function draw(){
+      let canvas = document.querySelector('#canvas');
+      if(canvas.getContext){
+        let ctx = canvas.getContext('2d');
+        ctx.beginPath();
+        
+        // 填充三角形
+        ctx.moveTo(75,50);
+        ctx.lineTo(100,75);
+        ctx.lineTo(100,25);
+        // 使用填充（fill）时，路径自动闭合
+        ctx.fill();
+
+        // 描边三角形
+        // beginPath() 清空之前的列表 重新开始绘制
+        ctx.beginPath();
+        ctx.moveTo(150,150);
+        ctx.lineTo(150,70);
+        ctx.lineTo(70,150);
+        // 如果没有 closePath()，则只绘制了两条线段，并不是一个完整的三角形。
+        ctx.closePath();
+        // 使用描边（stroke）则不会闭合路径
+        ctx.stroke()
+      }
+    }
+  </script>
+</body>
+</html>
