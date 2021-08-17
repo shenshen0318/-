@@ -1,0 +1,4 @@
+{
+    "editor.suggest.snippetsPreventQuickSuggestions": false,
+    "python.pythonPath": "/usr/bin/python3"
+}
